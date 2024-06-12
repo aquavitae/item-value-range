@@ -29,7 +29,7 @@ const showAppraisedToPlayer = (html, appraised) => {
   );
 };
 
-const addAppraisedControlsForGM = (html, appraised, showPrice, item) => {
+const addAppraisedControlsForGM = (html, appraised, showPrice) => {
   
   const $html = $(html);
   const isItTidySheet = $html.closest('.app').hasClass('tidy5e-sheet');
@@ -79,7 +79,7 @@ const showHidePrice = async (app, html, data) => {
   const appraised = data.item.getFlag(moduleName, appraisedFlag) || '';
 
   if (game.user.isGM) {
-    addAppraisedControlsForGM(html, appraised, showPrice, data.item);
+    addAppraisedControlsForGM(html, appraised, showPrice);
   } else if (!showPrice) {
     showAppraisedToPlayer(html, appraised);
   }
